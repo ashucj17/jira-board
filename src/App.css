@@ -1,0 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.app{
+  display: grid;
+  grid-template-rows: 150px auto;
+}
+
+.app__section{
+  display: flex;
+  justify-content: space-evenly;
+}
