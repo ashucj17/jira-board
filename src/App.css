@@ -5,7 +5,7 @@
 
 .app{
   display: grid;
-  grid-template-rows: 150px auto;
+  grid-template-rows: 250px auto;
 }
 
 .app__section{

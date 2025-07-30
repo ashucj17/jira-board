@@ -1,11 +1,13 @@
 import React from "react";
-import './app.css'
+import TaskQueue from "./Components/Tasks/tasks-queue";
+import './App.css'
 
 const App = () =>{
   return(
     <div className="app">
     <header className="app__header">
-      <h1>Jira Board</h1>
+      <h1 style={{textAlign:"center" , margin: '50px auto'}}>Jira Board</h1>
+      <TaskQueue />
     </header>
     <div className="app__section">
       <section className="section">section1</section>
