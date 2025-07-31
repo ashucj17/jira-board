@@ -12,3 +12,7 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.app__header > form{
+  width: 40%;
+}
