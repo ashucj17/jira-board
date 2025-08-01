@@ -1,16 +1,17 @@
 import Tags from "../Tags/queue-assigned-tags";
 import "./tasks-queue.css";
 
-const TaskQueue = () => {
+const TaskQueue = (props) => {
+
   return (
     <header className="app__header">
       <form>
         <input type="text" placeholder="Enter Task Detail" />
         <div className="queue">
           <div className="queue__assigned">
-           <Tags />
-           <Tags />
-           <Tags />
+           <Tags tagName={"Dev"} />
+           <Tags tagName= {"QA"} />
+           <Tags tagName={"Product Owner"} />
           </div>
           <div className="queue__state">
             <select>

@@ -1,9 +1,11 @@
 import './queue-assigned-tags.css'
 
-const Tags= () =>{
+const Tags= (props) =>{
+    
+  const {tagName} = props
     return(
         <>
-            <button className="queue__assigned-tags">Dev</button>
+            <button className="queue__assigned-tags">{tagName}</button>
         </>
     )
 }
