@@ -5,10 +5,9 @@ import "./App.css";
 const App = () => {
   return (
     <div className="app">
-      {/* <header className="app__header"></header> */}
         <h1 style={{ textAlign: "center", margin: "50px auto" }}>Jira Board</h1>
         <TaskQueue />
-      
+
       <div className="app__section">
         <section className="section">section1</section>
         <section className="section">section2</section>

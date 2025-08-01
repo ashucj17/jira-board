@@ -1,3 +1,4 @@
+import Tags from "../Tags/queue-assigned-tags";
 import "./tasks-queue.css";
 
 const TaskQueue = () => {
@@ -7,9 +8,9 @@ const TaskQueue = () => {
         <input type="text" placeholder="Enter Task Detail" />
         <div className="queue">
           <div className="queue__assigned">
-            <button className="queue__assigned-role">Dev</button>
-            <button className="queue__assigned-role">QA</button>
-            <button className="queue__assigned-role">Product Owner</button>
+           <Tags />
+           <Tags />
+           <Tags />
           </div>
           <div className="queue__state">
             <select>

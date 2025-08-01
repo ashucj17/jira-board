@@ -5,14 +5,10 @@
 
 .app{
   display: grid;
-  grid-template-rows: 250px auto;
+  grid-template-rows: 150px auto;
 }
 
 .app__section{
   display: flex;
   justify-content: space-evenly;
-}
-
-.app__header > form{
-  width: 40%;
 }

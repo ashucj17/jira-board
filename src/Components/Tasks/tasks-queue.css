@@ -4,6 +4,10 @@
     justify-content: center;
 }
 
+.app__header > form{
+  width: 50%;
+}
+
 form > input{
     width: 100%;
     font-size: 20px;
@@ -24,25 +28,21 @@ form > input{
 
 }
 
-.queue__assigned-role{
-    background: none;
-    padding: 3px 13px;
-    border: 1px solid #d2d2d2;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-
 .queue__state >select{
-    padding: 8px;
+    width: 200px;
+    height: 40px;
+    padding: 0 5px;
     border: 1px solid #383838;
     border-radius: 5px;
 }
 
 .queue__state > button{
     border: none;
-    padding: 8px;
+    height: 40px;
+    padding: 3px 13px;
     border-radius: 5px;
     color: #fff;
     background: #1a57e7;
     margin-left: 10px;
+    cursor: pointer;
 }
