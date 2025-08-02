@@ -1,0 +1,9 @@
+.task__section{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.task__section_column-icon{
+    width: 20px;
+}
