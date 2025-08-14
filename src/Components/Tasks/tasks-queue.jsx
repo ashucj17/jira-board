@@ -6,7 +6,8 @@ const TaskQueue = (props) => {
   const [taskData, setTaskData] = useState(
     {
       task: '',
-      status: ''
+      status: 'Ready for development',
+      tags:[],
     }
   )
   console.log(taskData);
@@ -24,6 +25,28 @@ const TaskQueue = (props) => {
     e.preventDefault();
     console.log(taskData)
   }
+
+  const selectedTag = (tag) => {
+    if(taskData.tags.some((item) => item === tag)){
+      const filterTags = taskData.tags.filter(item => item!=tag)
+      setTaskData(prev=>{
+        return {...prev, tags:filterTags}
+      })
+    }else{
+      setTaskData(prev=>{
+        return{...prev, tags:[...prev.tags,tag]}
+      })
+    }
+    
+  }
+  console.log(taskData)
+
+  const checkTag = (tag) => {
+    return taskData.tags.some((item) => item === tag)
+
+  }
+
+
   // const [input, setInput] = useState("")
   // const [value, setValue] = useState('');
 
@@ -43,9 +66,9 @@ const TaskQueue = (props) => {
         <input type="text" name="task" placeholder="Enter Task Detail" onChange={handleChange} />
         <div className="queue">
           <div className="queue__assigned">
-           <Tags tagName={"Dev"} />
-           <Tags tagName= {"QA"} />
-           <Tags tagName={"Product Owner"} />
+          <Tags tagName={"Dev"} selectedTag={selectedTag} selected={checkTag('Dev')} />
+           <Tags tagName= {"QA"} selectedTag={selectedTag} selected={checkTag('QA')}/>
+           <Tags tagName={"Product Owner"} selectedTag={selectedTag} selected={checkTag('Product Owner')}/>
           </div>
           <div className="queue__state">
             <select onChange={handleChange} name="status">
