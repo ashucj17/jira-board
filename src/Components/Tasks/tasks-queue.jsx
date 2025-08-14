@@ -2,11 +2,11 @@ import { useState } from "react";
 import Tags from "../Tags/queue-assigned-tags";
 import "./tasks-queue.css";
 
-const TaskQueue = (props) => {
+const TaskQueue = ({setTasks}) => {
   const [taskData, setTaskData] = useState(
     {
       task: '',
-      status: 'Ready for development',
+      status: 'Ready For Development',
       tags:[],
     }
   )
@@ -15,14 +15,16 @@ const TaskQueue = (props) => {
   const handleChange = (e) =>{
     const {name, value} = e.target
     setTaskData((prev)=>{
-      return(
-         {...prev,[name]:value}
-      )
+      return {...prev,[name]:value}
+      
     })
 
   }
-  const handleSubmit =(e)=>{
+  const handleSubmit = (e) =>{
     e.preventDefault();
+    setTasks((prev)=>{
+      return [...prev, taskData]
+    })
     console.log(taskData)
   }
 
