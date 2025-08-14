@@ -1,19 +1,9 @@
 import './queue-assigned-tags.css'
+import {tagStyle, tagKeyMap} from '../../Constant/common'
 
 const Tags= (props) =>{
     
   const {tagName, selectedTag, selected } = props
-  const tagStyle = {
-    Dev:{backgroundColor: '#0BAEF4'},
-    QA:{backgroundColor:'#F52727'},
-    PO: {backgroundColor:'#20C809'}
-
-  }
-  const tagKeyMap= {
-    'Dev':'Dev',
-    'QA':'QA',
-    'Product Owner':'PO'
-  }
   const key =tagKeyMap[tagName]
     return(
         <>

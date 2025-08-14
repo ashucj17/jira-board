@@ -27,16 +27,22 @@ const TaskQueue = (props) => {
   }
 
   const selectedTag = (tag) => {
-    if(taskData.tags.some((item) => item === tag)){
-      const filterTags = taskData.tags.filter(item => item!=tag)
-      setTaskData(prev=>{
-        return {...prev, tags:filterTags}
-      })
-    }else{
-      setTaskData(prev=>{
-        return{...prev, tags:[...prev.tags,tag]}
-      })
-    }
+    setTaskData((prev)=>{
+      const isSelected = prev.tags.includes(tag);
+      const tags  = isSelected ? prev.tags.filter(item => item!=tag) : [...prev.tags,tag]
+
+      return {...prev, tags}
+    })
+    // if(taskData.tags.some((item) => item === tag)){
+    //   const filterTags = taskData.tags.filter(item => item!=tag)
+    //   setTaskData(prev=>{
+    //     return {...prev, tags:filterTags}
+    //   })
+    // }else{
+    //   setTaskData(prev=>{
+    //     return{...prev, tags:[...prev.tags,tag]}
+    //   })
+    // }
     
   }
   console.log(taskData)
@@ -45,20 +51,6 @@ const TaskQueue = (props) => {
     return taskData.tags.some((item) => item === tag)
 
   }
-
-
-  // const [input, setInput] = useState("")
-  // const [value, setValue] = useState('');
-
-  // const inputHandler= (e)=>{
-  // setInput(e.target.value)
-  // }
-  // console.log(input)
-
-  // const selectTask= (e) => {
-  //   setValue(e.target.value)
-  // }
-  // console.log(value)
 
   return (
     <header className="app__header">
