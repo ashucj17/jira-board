@@ -25,7 +25,11 @@ const TaskQueue = ({setTasks}) => {
     setTasks((prev)=>{
       return [...prev, taskData]
     })
-    console.log(taskData)
+    setTaskData({
+      task: '',
+      status: 'Ready For Development',
+      tags:[],
+    })
   }
 
   const selectedTag = (tag) => {
@@ -57,7 +61,7 @@ const TaskQueue = ({setTasks}) => {
   return (
     <header className="app__header">
       <form onSubmit={handleSubmit}>
-        <input type="text" name="task" placeholder="Enter Task Detail" onChange={handleChange} />
+        <input type="text" name="task" value={taskData.task} placeholder="Enter Task Detail" onChange={handleChange} />
         <div className="queue">
           <div className="queue__assigned">
           <Tags tagName={"Dev"} selectedTag={selectedTag} selected={checkTag('Dev')} />
@@ -65,12 +69,12 @@ const TaskQueue = ({setTasks}) => {
            <Tags tagName={"Product Owner"} selectedTag={selectedTag} selected={checkTag('Product Owner')}/>
           </div>
           <div className="queue__state">
-            <select onChange={handleChange} name="status">
-              <option value="Ready for development">
-                Ready for development
+            <select onChange={handleChange} name="status" value={taskData.status}>
+              <option value="Ready For Development">
+                Ready For Development
               </option>
               <option value="In Progress">In Progress</option>
-              <option value="Ready for QA">Ready for QA</option>
+              <option value="Ready For QA">Ready For QA</option>
               <option value="Closed">Closed</option>
             </select>
             <button type="submit" value="submit">
