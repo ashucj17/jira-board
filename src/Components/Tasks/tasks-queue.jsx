@@ -10,7 +10,7 @@ const TaskQueue = ({setTasks}) => {
       tags:[],
     }
   )
-  console.log(taskData);
+
 
   const handleChange = (e) =>{
     const {name, value} = e.target
@@ -51,7 +51,7 @@ const TaskQueue = ({setTasks}) => {
     // }
     
   }
-  console.log(taskData)
+
 
   const checkTag = (tag) => {
     return taskData.tags.some((item) => item === tag)

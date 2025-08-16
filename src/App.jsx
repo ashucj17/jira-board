@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TaskQueue from "./Components/Tasks/tasks-queue";
 import "./App.css";
 import TaskSection from "./Components/TaskSection/task-section-column";
 import CheckIcon from './assets/CheckIcon.png'
 
-const App = () => {
-  const [tasks, setTasks]  = useState([])
+const existingTask = localStorage.getItem('tasks')
+console.log("existingTaskrst", JSON.parse(existingTask))
 
+const App = () => {
+  const [tasks, setTasks]  = useState(JSON.parse(existingTask));
+
+
+  useEffect(()=>{
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  }, [tasks]);
 
     const handleDelete = (taskIndex)=>{
      const newTask =  tasks.filter((tasks,index) => index !== taskIndex)
@@ -14,7 +21,6 @@ const App = () => {
     }
 
 
-  console.log(tasks)
   return (
     <div className="app">
         <h1 style={{ textAlign: "center", margin: "50px auto" }}>Jira Board</h1>
