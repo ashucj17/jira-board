@@ -8,12 +8,14 @@ const existingTask = localStorage.getItem('tasks')
 console.log("existingTaskrst", JSON.parse(existingTask))
 
 const App = () => {
-  const [tasks, setTasks]  = useState(JSON.parse(existingTask));
+  const [tasks, setTasks]  = useState(JSON.parse(existingTask) || []);
 
 
   useEffect(()=>{
     localStorage.setItem('tasks', JSON.stringify(tasks))
   }, [tasks]);
+
+  const [activeCard, setActiveCard] =useState(null)
 
     const handleDelete = (taskIndex)=>{
      const newTask =  tasks.filter((tasks,index) => index !== taskIndex)
@@ -27,11 +29,12 @@ const App = () => {
         <TaskQueue setTasks={setTasks} />
 
       <div className="task__section">
-        <TaskSection title="Ready For Development" tasks={tasks} status="Ready For Development" handleDelete={handleDelete} />
-        <TaskSection title="In Progress" tasks={tasks} status="In Progress" handleDelete={handleDelete} />
-        <TaskSection title="Ready For QA" tasks={tasks} status="Ready For QA" handleDelete={handleDelete} />
-        <TaskSection title="Closed" icon={CheckIcon} tasks={tasks} status="Closed" handleDelete={handleDelete} />
+        <TaskSection title="Ready For Development" tasks={tasks} status="Ready For Development" handleDelete={handleDelete} setActiveCard={setActiveCard} />
+        <TaskSection title="In Progress" tasks={tasks} status="In Progress" handleDelete={handleDelete} setActiveCard={setActiveCard} />
+        <TaskSection title="Ready For QA" tasks={tasks} status="Ready For QA" handleDelete={handleDelete} setActiveCard={setActiveCard} />
+        <TaskSection title="Closed" icon={CheckIcon} tasks={tasks} status="Closed" handleDelete={handleDelete} setActiveCard={setActiveCard} />
       </div>
+      <h2>Acitve Card{activeCard}</h2>
     </div>
   );
 };

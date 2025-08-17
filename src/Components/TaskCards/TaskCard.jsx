@@ -1,10 +1,10 @@
 import Tags from '../Tags/queue-assigned-tags'
 import './TaskCard.css'
 
-const TaskCard = ({title, tags, icon, handleDelete,index }) =>{
+const TaskCard = ({title, tags, icon, handleDelete, index, setActiveCard }) =>{
     return(
         <>
-        <article className='taskCard_container'>
+        <article className='taskCard_container' draggable onDragStart={() =>{setActiveCard(index)}} onDragEnd={()=>{setActiveCard(null)}}>
             <h4>{title}</h4>
             <div className='flex_container'>
                 <div className='card_tags'>
