@@ -22,6 +22,10 @@ const App = () => {
             setTasks(newTask)
     }
 
+  const onDrop = (status, position) =>{
+    console.log(`${activeCard} is going to place into ${status} and at the position ${position}`)
+  }
+
 
   return (
     <div className="app">
@@ -29,10 +33,10 @@ const App = () => {
         <TaskQueue setTasks={setTasks} />
 
       <div className="task__section">
-        <TaskSection title="Ready For Development" tasks={tasks} status="Ready For Development" handleDelete={handleDelete} setActiveCard={setActiveCard} />
-        <TaskSection title="In Progress" tasks={tasks} status="In Progress" handleDelete={handleDelete} setActiveCard={setActiveCard} />
-        <TaskSection title="Ready For QA" tasks={tasks} status="Ready For QA" handleDelete={handleDelete} setActiveCard={setActiveCard} />
-        <TaskSection title="Closed" icon={CheckIcon} tasks={tasks} status="Closed" handleDelete={handleDelete} setActiveCard={setActiveCard} />
+        <TaskSection title="Ready For Development" tasks={tasks} status="Ready For Development" handleDelete={handleDelete} setActiveCard={setActiveCard} onDrop={onDrop} />
+        <TaskSection title="In Progress" tasks={tasks} status="In Progress" handleDelete={handleDelete} setActiveCard={setActiveCard} onDrop={onDrop} />
+        <TaskSection title="Ready For QA" tasks={tasks} status="Ready For QA" handleDelete={handleDelete} setActiveCard={setActiveCard} onDrop={onDrop} />
+        <TaskSection title="Closed" icon={CheckIcon} tasks={tasks} status="Closed" handleDelete={handleDelete} setActiveCard={setActiveCard} onDrop={onDrop} />
       </div>
       <h2>Acitve Card{activeCard}</h2>
     </div>
