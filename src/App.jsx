@@ -47,7 +47,6 @@ const App = () => {
         <TaskSection title="Ready For QA" tasks={tasks} status="Ready For QA" handleDelete={handleDelete} setActiveCard={setActiveCard} onDrop={onDrop} />
         <TaskSection title="Closed" icon={CheckIcon} tasks={tasks} status="Closed" handleDelete={handleDelete} setActiveCard={setActiveCard} onDrop={onDrop} />
       </div>
-      <h2>Acitve Card{activeCard}</h2>
     </div>
   );
 };
