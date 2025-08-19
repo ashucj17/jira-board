@@ -24,6 +24,7 @@ const App = () => {
 
   const onDrop = (status, position) =>{
     console.log(`${activeCard} is going to place into ${status} and at the position ${position}`)
+<<<<<<< HEAD
 
     if(activeCard === null || activeCard === undefined) return;
 
@@ -33,6 +34,8 @@ const App = () => {
       ...taskToMove, status: status,
     })
     setTasks(updatedTasks);
+=======
+>>>>>>> 8b512378dd474c60d2de1324dcb02d5f9b2ab9fb
   }
 
 
